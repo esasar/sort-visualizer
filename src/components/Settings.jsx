@@ -9,18 +9,13 @@ const Settings = () => {
     elementsSliderValue, setElementsSliderValue,
   } = useAppContext()
 
-  const scrambledWords = [
-    'tgnotis', 'rngotis', 'rnogtis', 'rnotgis', 'rnotigs', 'rnotisg', 'rontisg', 'rotnisg', 
-    'rotinsg', 'rotisng', 'ortisng', 'ortsing', 'orsting', 'osrting', 'sorting'
-  ]
-  const textAnimationInterval = 100
-
-  const sortingText = useTextAnimation(scrambledWords, textAnimationInterval)
+  const sortingText1 = useTextAnimation('Visualize', 100)
+  const sortingText2 = useTextAnimation('sorting', 100)
   
   return (
     <div>
-      <h1 className="text-4xl font-bold">Visualize
-        <span className="text-blue-400"> {sortingText}!</span>
+      <h1 className="text-4xl font-bold">{sortingText1 || 'Visualize'}
+        <span className="text-blue-400"> {sortingText2 || 'sorting'}!</span>
       </h1>
       <br/>
       <div className="p-6 max-w-lg mx-auto bg-white rounded-xl shadow-md space-y-6">

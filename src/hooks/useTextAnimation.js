@@ -1,21 +1,29 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 
-const useTextAnimation = (scrambledWords, interval) => {
+import makeTextAnimationFrames from '../utils/textAnimationUtil'
+
+const useTextAnimation = (word, interval) => {
   const [text, setText] = useState('')
   const [index, setIndex] = useState(0)
 
+  const frames = useMemo(() => makeTextAnimationFrames(word), [word])
+
   useEffect(() => {
     const intervalId = setInterval(() => {
-      if (index < scrambledWords.length) {
-        setText(scrambledWords[index])
-        setIndex(index + 1)
-      } else {
-        clearInterval(intervalId)
-      }
+      setText(frames[index])
+      setIndex(prevIndex => {
+        const nextIndex = prevIndex + 1
+        if (nextIndex >= frames.length) {
+          clearInterval(intervalId)
+          return prevIndex
+        }
+        return nextIndex
+      })
+ 
     }, interval)
 
     return () => clearInterval(intervalId);
-  }, [scrambledWords, interval])
+  }, [frames, index, interval])
 
   return text
 }
