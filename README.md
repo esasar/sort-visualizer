@@ -5,7 +5,7 @@ Simple, interactive sorting visualizer built with [React](https://github.com/fac
 
   
 
-Done as an exercise on doing to make a simple yet sleek looking, interactive and dynamic web-app with some practical use.
+Done as an exercise on making a simple yet sleek looking, interactive and dynamic web-app with some practical use.
 
 Deployed [here](https://esasar.github.io/sort-visualizer/)!
   
