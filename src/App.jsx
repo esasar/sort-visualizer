@@ -15,7 +15,7 @@ const App = () => {
           style={{ minHeight: "calc(100vh - 60px)" }}
           className="flex flex-col justify-center"
         >
-          <div className="grid lg:grid-cols-2 gap-32 items-center  max-w-7xl  mx-auto  px-8">
+          <div className="grid lg:grid-cols-2 gap-32 items-center max-w-7xl mx-auto px-8">
             <Settings />
             <Sorter />
           </div>
