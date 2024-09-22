@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 
 const AppContext = React.createContext({
 
@@ -49,10 +50,8 @@ const AppProvider = ({ children }) => {
   )
 }
 
-const useAppContext = () => {
-  const context = useContext(AppContext)
-
-  return context
+AppProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 }
 
-export { AppProvider, useAppContext }
+export { AppProvider, AppContext }

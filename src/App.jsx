@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { AppProvider } from './providers/AppProvider'
 import Settings from './components/Settings'
 import Sorter from './components/Sorter'

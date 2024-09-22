@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
-import { useAppContext } from '../providers/AppProvider'
+import useAppContext from '../hooks/useAppContext'
 
 const bubbleSortStep = (array, setArray, iterators, setIterators) => {
   let { i, j } = iterators
@@ -42,7 +42,7 @@ const Sorter = () => {
     setSorted(false);
     setSwapped(false);
     setIsSorting(false);
-  }, [elementsSliderValue])
+  }, [elementsSliderValue, setSorted, setIsSorting])
 
   useEffect(() => { 
     if (!isSorting) return
@@ -61,7 +61,7 @@ const Sorter = () => {
     }, delay)
 
     return () => clearInterval(intervalId)
-  }, [array, iterators])
+  }, [array, iterators, isSorting, speedSliderValue, setArray, setIterators, setIsSorting, setSorted])
 
   const startSorting = () => {
     if (isSorting) return
