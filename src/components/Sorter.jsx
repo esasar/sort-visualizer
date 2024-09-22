@@ -76,7 +76,9 @@ const Sorter = () => {
       className='border rounded-xl p-10 bg-blue-200 shadow-md space-y-6 cursor-pointer flex flex-col justify-end items-center'
       style = {{
         height: '284px',
+        maxWidth: '100vw',
         width: '100%',
+        overflow: 'hidden',
       }}
       onClick={() => {
         if (sorted) return
